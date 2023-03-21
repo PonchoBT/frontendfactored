@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -12,7 +13,7 @@ import { useState } from "react";
 export default function SignIn() {
   const [password, setPassword] = useState('');
   const [usuario, setUsuario]  = useState('');
-
+  const navigate = useNavigate();
 
   const usuarioChange = (event:any) => {
     setUsuario(event.target.value);
@@ -29,6 +30,13 @@ export default function SignIn() {
     if(usuario=="Poncho" && password=="123")
     {
         alert('Exitosamente')
+        const usuarios = {
+          usuario:usuario,
+          password:password
+        }
+        localStorage.setItem("usuario_prueba", JSON.stringify(usuarios));
+
+        navigate("/home");
     }else{
       alert('El usuario o la clave son incorrectas')
     } 
