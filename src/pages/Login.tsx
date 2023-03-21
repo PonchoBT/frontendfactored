@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SignIn() {
   const [password, setPassword] = useState('');
@@ -42,6 +42,27 @@ export default function SignIn() {
     } 
    }
 
+   function ActivarLogin()
+   {
+      const usuario:any = localStorage.getItem("usuario_prueba"); 
+      const perfil = JSON.parse(usuario);
+
+
+
+      if(perfil)
+      {
+        navigate('/home');
+      }
+
+   }
+
+
+   useEffect(
+       () => {
+           ActivarLogin();
+       },
+       [],
+     );
 
 
   const handleSubmit = (event: { preventDefault: () => void; currentTarget: HTMLFormElement | any; }) => {
