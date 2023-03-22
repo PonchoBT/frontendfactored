@@ -10,8 +10,6 @@ export default function Page404() {
     navigate("/login");
   }
 
-
-
   return (
     <Box
       sx={{
@@ -28,7 +26,9 @@ export default function Page404() {
             <Typography variant="h6">
               The page you’re looking for doesn’t exist.
             </Typography>
-            <Button onClick={ClickHome} variant="contained">Back Home</Button>
+            <Button onClick={ClickHome} variant="contained">
+              Back Home
+            </Button>
           </Grid>
           <Grid xs={6}>
             <img
