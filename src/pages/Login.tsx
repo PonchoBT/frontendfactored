@@ -11,63 +11,54 @@ import Container from "@mui/material/Container";
 import { useEffect, useState } from "react";
 
 export default function SignIn() {
-  const [password, setPassword] = useState('');
-  const [usuario, setUsuario]  = useState('');
+  const [password, setPassword] = useState("");
+  const [usuario, setUsuario] = useState("");
   const navigate = useNavigate();
 
-  const usuarioChange = (event:any) => {
+  const usuarioChange = (event: any) => {
     setUsuario(event.target.value);
   };
 
-  const passwordChange = (event2:any) => {
+  const passwordChange = (event2: any) => {
     setPassword(event2.target.value);
   };
 
-  function ClickLogin()
-  {
+  function ClickLogin() {
     console.log(usuario);
     console.log(password);
-    if(usuario=="Poncho" && password=="123")
-    {
-        alert('Exitosamente')
-        const usuarios = {
-          usuario:usuario,
-          password:password
-        }
-        localStorage.setItem("usuario_prueba", JSON.stringify(usuarios));
+    if (usuario == "Poncho" && password == "123") {
+      alert("Exitosamente");
+      const usuarios = {
+        usuario: usuario,
+        password: password,
+      };
+      localStorage.setItem("usuario_prueba", JSON.stringify(usuarios));
 
-        navigate("/home");
-    }else{
-      alert('El usuario o la clave son incorrectas')
-    } 
-   }
+      navigate("/home");
+    } else {
+      alert("El usuario o la clave son incorrectas");
+    }
+  }
 
-   function ActivarLogin()
-   {
-      const usuario:any = localStorage.getItem("usuario_prueba"); 
-      const perfil = JSON.parse(usuario);
+  function ActivarLogin() {
+    const usuario: any = localStorage.getItem("usuario_prueba");
+    const perfil = JSON.parse(usuario);
 
+    if (perfil) {
+      navigate("/home");
+    }
+  }
 
+  useEffect(() => {
+    ActivarLogin();
+  }, []);
 
-      if(perfil)
-      {
-        navigate('/home');
-      }
-
-   }
-
-
-   useEffect(
-       () => {
-           ActivarLogin();
-       },
-       [],
-     );
-
-
-  const handleSubmit = (event: { preventDefault: () => void; currentTarget: HTMLFormElement | any; }) => {
+  const handleSubmit = (event: {
+    preventDefault: () => void;
+    currentTarget: HTMLFormElement | any;
+  }) => {
     event.preventDefault();
-    const data:any = event.currentTarget;
+    const data: any = event.currentTarget;
 
     //setUsuario(data);
     console.log(data);
@@ -76,7 +67,7 @@ export default function SignIn() {
   return (
     <Container component="main" maxWidth="xs">
       <Box
-        sx={{  
+        sx={{
           marginTop: 8,
           display: "flex",
           flexDirection: "column",
