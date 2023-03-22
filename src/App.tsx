@@ -146,7 +146,6 @@ export default function App() {
 return (
     <BrowserRouter>
         <div className="App">
-            <h1>useRoutes Example</h1>
             <Router/>
         </div>
     </BrowserRouter>

@@ -60,7 +60,7 @@ export default function SignIn() {
     event.preventDefault();
     const data: any = event.currentTarget;
 
-    //setUsuario(data);
+    setUsuario(data);
     console.log(data);
   };
 
