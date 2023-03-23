@@ -1,16 +1,18 @@
 import { useRoutes } from "react-router-dom";
 import Home from "../pages/Home";
-
 import Login from "../pages/Login";
-import Page404 from "../pages/Page404";
 import SignIn from "../pages/Singup";
+import Page404 from "../pages/Page404";
+import Films from "../pages/Films";
 
 export default function Router() {
   let element = useRoutes([
-    { path: "Home", element: <Home /> },
+    { path: "home", element: <Home /> },
     { path: "sign", element: <SignIn /> },
     { path: "login", element: <Login /> },
     { path: "*", element: <Page404 /> },
+    { path: "films", element: <Films /> },
+    { path: "/", element: <Films /> },
   ]);
   return element;
 }

@@ -28,11 +28,8 @@ export default function Main() {
 
   return (
     <BrowserRouter>
-  
       {activo ? <Header /> : null}
-
       <Router />
-
     </BrowserRouter>
   );
 }
