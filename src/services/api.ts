@@ -4,13 +4,13 @@ import { ResponsePlanets, ResponsePeople, ResponseFilms } from '../models/panel'
 
 export const endpoint = {
 
-    getPeople: function(){
-      return api.get<ResponsePeople>('people');
+    getPeople: function(page:number){
+      return api.get<ResponsePeople>('people/?page='+page);
     },
-    getPlanets: function(){
-      return api.get<ResponsePlanets>('planets');
+    getPlanets: function(page:number){
+      return api.get<ResponsePlanets>('planets/?page='+page);
     },
-    getfilms: function(){
-      return api.get<ResponseFilms>('films');
+    getfilms: function(page:number){
+      return api.get<ResponseFilms>('films/?page='+page);
     },
   }
