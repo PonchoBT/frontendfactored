@@ -9,6 +9,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import "../assets/styles.css"
 
 export default function SignIn() {
   const [password, setPassword] = useState("");
@@ -65,7 +68,10 @@ export default function SignIn() {
   };
 
   return (
+    <div className="fondo">
     <Container component="main" maxWidth="xs">
+    <Card sx={{ marginTop: "50%" }}>
+          <CardContent>
       <Box
         sx={{
           marginTop: 8,
@@ -82,10 +88,10 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="user"
+            label="User"
+            name="user"
+            autoComplete="user"
             autoFocus
             onChange={usuarioChange}
           />
@@ -127,6 +133,9 @@ export default function SignIn() {
           </Grid>
         </Box>
       </Box>
+      </CardContent>
+        </Card>
     </Container>
+    </div>
   );
 }

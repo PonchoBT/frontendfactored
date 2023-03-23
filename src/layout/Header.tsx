@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,15 +9,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
-import { TextDecoder } from "util";
+import { Link, useNavigate } from "react-router-dom";
+import * as React from "react";
+import { Tooltip } from "@mui/material";
 
 const pages = ["films", "species", "vehicles", "starships", "created"];
 const settings = ["Profile", "Logout"];
 
-function ResponsiveAppBar() {
+function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -40,8 +40,31 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const navigate = useNavigate();
+  const [usuario, setUsuario] = useState("");
+
+  function ClickCerrar() {
+    localStorage.removeItem("usuario_prueba");
+    navigate("/login");
+  }
+
+  function ActivarLogin() {
+    const usuario: any = localStorage.getItem("usuario_prueba");
+    const perfil = JSON.parse(usuario);
+
+    if (!perfil) {
+      navigate("/login");
+    } else {
+      setUsuario(perfil.usuario);
+    }
+  }
+
+  useEffect(() => {
+    ActivarLogin();
+  }, []);
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: "#000000" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -59,7 +82,10 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            StarWars Desk
+            <img
+              src="https://frontendfactored.s3.us-west-1.amazonaws.com/logo.png"
+              style={{ height: "50px" }}
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -141,12 +167,23 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+          <Box
+            sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
+          >
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar src="https://frontendfactored.s3.us-west-1.amazonaws.com/ponchobt.png" />
+            </IconButton>
+
+            <Typography sx={{ minWidth: 100 }}>{usuario}</Typography>
+            <Typography sx={{ minWidth: 100 }}>
+              {" "}
+              <Button onClick={ClickCerrar} variant="contained">
+                log out
+              </Button>
+            </Typography>
+          </Box>
+
+          <Box>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -175,4 +212,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default Header;

@@ -7,7 +7,7 @@ export default function Page404() {
 
   function ClickHome() {
     localStorage.removeItem("usuario_prueba");
-    navigate("/login");
+    navigate("/");
   }
 
   return (
