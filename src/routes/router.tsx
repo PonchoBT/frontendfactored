@@ -4,10 +4,11 @@ import Login from "../pages/Login";
 import SignIn from "../pages/Singup";
 import Page404 from "../pages/Page404";
 import Films from "../pages/Films";
+import Header from "../layout/Header";
 
 export default function Router() {
   let element = useRoutes([
-    { path: "home", element: <Home /> },
+    { path: "home", element: <div><Header/><Home /></div> },
     { path: "sign", element: <SignIn /> },
     { path: "login", element: <Login /> },
     { path: "*", element: <Page404 /> },

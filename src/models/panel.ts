@@ -9,7 +9,7 @@ export interface RespuestaPeople {
     gender:     string;
 }
 
-export interface RespuestaPlanetsl {
+export interface RespuestaPlanets {
     name:            string;
     rotation_period: string;
     orbital_period:  string;
@@ -70,3 +70,19 @@ export interface RespuestaStarships {
     MGLT:                   string;
     starship_class:         string;
 }
+
+export interface ResponsePeople {
+    results: RespuestaPeople[]
+}
+export interface ResponsePlanets {
+    results: RespuestaPlanets[]
+} 
+
+export interface ResponseFilms {
+    results: RespuestaFilms[]
+}
+
+export interface ResponseDatos {
+    results: Array<any>
+}
+

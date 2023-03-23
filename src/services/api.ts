@@ -1,25 +1,16 @@
 import { api } from "../environments/environments";
 
-import { RespuestaPeople, RespuestaPlanetsl, RespuestaFilms, RespuestaSpecies, RespuestaVehicles, RespuestaStarships} from '../models/panel';
+import { ResponsePlanets, ResponsePeople, ResponseFilms } from '../models/panel';
 
 export const endpoint = {
 
     getPeople: function(){
-      return api.get<RespuestaPeople>('people');
+      return api.get<ResponsePeople>('people');
     },
     getPlanets: function(){
-      return api.get<RespuestaPlanetsl>('planets');
+      return api.get<ResponsePlanets>('planets');
     },
     getfilms: function(){
-      return api.get<RespuestaFilms>('films');
+      return api.get<ResponseFilms>('films');
     },
-   getSpecies: function(){
-      return api.get<RespuestaSpecies>('species');
-    },
-    getVehicles: function(){
-      return api.get<RespuestaVehicles>('vehicles');
-    },
-    getstarships: function(){
-      return api.get<RespuestaStarships>('starships');
-    }
   }
