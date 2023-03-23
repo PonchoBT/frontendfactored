@@ -7,7 +7,7 @@ import SignIn from "../pages/Singup";
 
 export default function Router() {
   let element = useRoutes([
-    { path: "/", element: <Home /> },
+    { path: "Home", element: <Home /> },
     { path: "sign", element: <SignIn /> },
     { path: "login", element: <Login /> },
     { path: "*", element: <Page404 /> },
