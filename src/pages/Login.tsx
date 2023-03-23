@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import "../assets/styles.css"
+import Swal from 'sweetalert2'
+
 
 export default function SignIn() {
   const [password, setPassword] = useState("");
@@ -30,7 +32,12 @@ export default function SignIn() {
     console.log(usuario);
     console.log(password);
     if (usuario == "Poncho" && password == "123") {
-      alert("Exitosamente");
+      Swal.fire({
+        icon: 'success',
+        text: 'Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
       const usuarios = {
         usuario: usuario,
         password: password,
@@ -39,7 +46,10 @@ export default function SignIn() {
 
       navigate("/home");
     } else {
-      alert("El usuario o la clave son incorrectas");
+      Swal.fire({
+        icon: 'error',
+        text: 'El usuario o la clave son incorrectas',
+      })
     }
   }
 
