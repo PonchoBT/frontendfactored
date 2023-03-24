@@ -23,8 +23,8 @@ export default function Home() {
   const [valor, setValor] = useState("");
   const [count, setCount] = useState(0);
   const [activo, setActivo] = useState(false);
-
   const [page, setPage] = useState(1);
+
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
 
@@ -112,25 +112,214 @@ export default function Home() {
           </CardContent>
         </Card>
         <Grid container spacing={2} sx={{ mt: 15, mb: 15 }}>
-          {datos
-            ? datos.map((x: any) => (
-                <Grid item xs={12} sm={6} md={4}>
-                  <Card sx={{ minWidth: 275 }}>
-                    <CardContent>
-                      <Typography
-                        sx={{ fontSize: 14 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        {x.name}
-                        {x.title}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))
-            : null}
+          {(() => {
+            switch (valor) {
+              case "people":
+                return datos
+                  ? datos.map((x: any) => (
+                      <Grid item xs={12} sm={6} md={4}>
+                        <Card sx={{ minWidth: 275 }}>
+                          <CardContent>
+                            <Typography
+                              sx={{ fontSize: 20 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.name}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.height}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.mass}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.hair_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.skin_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.eye_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.birth_year}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.gender}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    ))
+                  : null;
+              case "planets":
+                return datos
+                  ? datos.map((x: any) => (
+                      <Grid item xs={12} sm={6} md={4}>
+                        <Card sx={{ minWidth: 275 }}>
+                          <CardContent>
+                            <Typography
+                              sx={{ fontSize: 20 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.name}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.height}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.mass}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.hair_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.skin_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.eye_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.birth_year}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.gender}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    ))
+                  : null;
+
+              case "films":
+                return datos
+                  ? datos.map((x: any) => (
+                      <Grid item xs={12} sm={6} md={4}>
+                        <Card sx={{ minWidth: 275 }}>
+                          <CardContent>
+                            <Typography
+                              sx={{ fontSize: 20 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.name}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.height}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.mass}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.hair_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.skin_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.eye_color}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.birth_year}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              {x.gender}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    ))
+                  : null;
+            }
+          })()}
         </Grid>
+
         {activo ? (
           <Stack spacing={2} alignItems="center">
             <Pagination
