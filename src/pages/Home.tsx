@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { endpoint } from "../services/api";
+import "../assets/styles.css";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -29,12 +30,9 @@ export default function Home() {
 
     setValor(valor);
     switch (valor) {
-
       case "people":
         endpoint.getPeople(value).then((res) => {
           setDatos(res.data.results);
-
- 
         });
         break;
       case "planets":
@@ -50,16 +48,13 @@ export default function Home() {
     }
   };
 
-
   function elegirApi(e: any) {
-
     setActivo(true);
-   
+
     setValor(e.value);
 
     setDatos([]);
-        switch (e.value) { 
-
+    switch (e.value) {
       case "people":
         endpoint.getPeople(page).then((res) => {
           setDatos(res.data.results);
@@ -79,7 +74,6 @@ export default function Home() {
         });
         break;
     }
-
   }
 
   function ActivarLogin() {
@@ -98,25 +92,29 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <Container>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            onChange={(e) => elegirApi(e.target)}
-          >
-            {/* <MenuItem value="all">all</MenuItem> */}
-            <MenuItem value="people">People</MenuItem>
-            <MenuItem value="planets">Planets</MenuItem>
-            <MenuItem value="films">Films</MenuItem>
-          </Select>
-        </FormControl>
-        <Grid container spacing={2}>
+    <div className="fondo2">
+      <Container sx={{ mt: 15, mb: 15 }}>
+        <Card>
+          <CardContent>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Select</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Select"
+                onChange={(e) => elegirApi(e.target)}
+              >
+                <MenuItem value="films">Films</MenuItem>
+                <MenuItem value="planets">Planets</MenuItem>
+                <MenuItem value="people">People</MenuItem>
+              </Select>
+            </FormControl>
+          </CardContent>
+        </Card>
+        <Grid container spacing={2} sx={{ mt: 15, mb: 15 }}>
           {datos
             ? datos.map((x: any) => (
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={4}>
                   <Card sx={{ minWidth: 275 }}>
                     <CardContent>
                       <Typography
@@ -133,15 +131,26 @@ export default function Home() {
               ))
             : null}
         </Grid>
-        {
-          activo? 
-      <Stack spacing={2}>
-      <Pagination count={count} page={page} onChange={handleChange} />
-    </Stack>
-    : ""
-
-        }
-  
+        {activo ? (
+          <Stack spacing={2} alignItems="center">
+            <Pagination
+              count={count}
+              page={page}
+              onChange={handleChange}
+              sx={{
+                "& .Mui-selected": {
+                  background: "#ffe819",
+                },
+                "& .MuiPaginationItem-root": {
+                  color: "white",
+                  fontSize: "25px",
+                },
+              }}
+            />
+          </Stack>
+        ) : (
+          ""
+        )}
       </Container>
     </div>
   );

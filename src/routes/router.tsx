@@ -10,10 +10,9 @@ export default function Router() {
   let element = useRoutes([
     { path: "home", element: <div><Header/><Home /></div> },
     { path: "sign", element: <SignIn /> },
-    { path: "login", element: <Login /> },
     { path: "*", element: <Page404 /> },
     { path: "films", element: <Films /> },
-    { path: "/", element: <Films /> },
+    { path: "/", element: <Login /> },
   ]);
   return element;
 }

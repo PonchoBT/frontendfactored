@@ -45,7 +45,7 @@ function Header() {
 
   function ClickCerrar() {
     localStorage.removeItem("usuario_prueba");
-    navigate("/login");
+    navigate("/");
   }
 
   function ActivarLogin() {
