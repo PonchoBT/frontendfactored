@@ -390,7 +390,7 @@ export default function Home() {
           })()}
         </Grid>
         {activo ? (
-          <Stack spacing={2} alignItems="center">
+          <Stack spacing={2} alignItems="center" sx={{ mt: 5, mb: 30 }}>
             <Pagination
               count={count}
               page={page}
