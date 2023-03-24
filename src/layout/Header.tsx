@@ -44,12 +44,12 @@ function Header() {
   const [usuario, setUsuario] = useState("");
 
   function ClickCerrar() {
-    localStorage.removeItem("usuario_prueba");
+    localStorage.removeItem("user");
     navigate("/");
   }
 
   function ActivarLogin() {
-    const usuario: any = localStorage.getItem("usuario_prueba");
+    const usuario: any = localStorage.getItem("user");
     const perfil = JSON.parse(usuario);
 
     if (!perfil) {

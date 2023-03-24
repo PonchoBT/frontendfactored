@@ -31,7 +31,7 @@ export default function SignIn() {
     if (usuario == "admin" && password == "123") {
       Swal.fire({
         icon: "success",
-        text: "Exitosamente",
+        text: "Successfully",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -39,19 +39,19 @@ export default function SignIn() {
         usuario: usuario,
         password: password,
       };
-      localStorage.setItem("usuario_prueba", JSON.stringify(usuarios));
+      localStorage.setItem("user", JSON.stringify(usuarios));
 
       navigate("/home");
     } else {
       Swal.fire({
         icon: "error",
-        text: "El usuario o la clave son incorrectas",
+        text: "Incorrect user or password",
       });
     }
   }
 
   function ActivarLogin() {
-    const usuario: any = localStorage.getItem("usuario_prueba");
+    const usuario: any = localStorage.getItem("user");
     const perfil = JSON.parse(usuario);
 
     if (perfil) {
@@ -75,7 +75,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="fondo">
+    <div className="background">
       <Container component="main" maxWidth="xs">
         <Card sx={{ marginTop: "50%" }}>
           <CardContent>

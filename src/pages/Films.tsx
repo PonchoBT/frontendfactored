@@ -14,7 +14,7 @@ export default function App() {
   }
 
   function ActivarLogin() {
-    const usuario: any = localStorage.getItem("usuario_prueba");
+    const usuario: any = localStorage.getItem("user");
     const perfil = JSON.parse(usuario);
 
     if (!perfil) {

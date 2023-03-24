@@ -74,7 +74,7 @@ export default function Home() {
     }
   }
   function ActivarLogin() {
-    const usuario: any = localStorage.getItem("usuario_prueba");
+    const usuario: any = localStorage.getItem("user");
     const perfil = JSON.parse(usuario);
     if (!perfil) {
       navigate("/login");
@@ -86,7 +86,6 @@ export default function Home() {
     ActivarLogin();
   }, []);
   return (
-    <div className="fondo2">
       <Container sx={{ mt: 15}}>
         <Card>
           <CardContent>
@@ -410,6 +409,5 @@ export default function Home() {
           ""
         )}
       </Container>
-    </div>
   );
 }
