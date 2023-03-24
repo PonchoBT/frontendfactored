@@ -50,9 +50,7 @@ export default function Home() {
 
   function elegirApi(e: any) {
     setActivo(true);
-
     setValor(e.value);
-
     setDatos([]);
     switch (e.value) {
       case "people":
@@ -75,25 +73,21 @@ export default function Home() {
         break;
     }
   }
-
   function ActivarLogin() {
     const usuario: any = localStorage.getItem("usuario_prueba");
     const perfil = JSON.parse(usuario);
-
     if (!perfil) {
       navigate("/login");
     } else {
       setUsuario(perfil.usuario);
     }
   }
-
   useEffect(() => {
     ActivarLogin();
   }, []);
-
   return (
     <div className="fondo2">
-      <Container sx={{ mt: 15, mb: 15 }}>
+      <Container sx={{ mt: 15}}>
         <Card>
           <CardContent>
             <FormControl fullWidth>
@@ -111,7 +105,7 @@ export default function Home() {
             </FormControl>
           </CardContent>
         </Card>
-        <Grid container spacing={2} sx={{ mt: 15, mb: 15 }}>
+        <Grid container spacing={2} sx={{ mt: 5, mb: 15 }}>
           {(() => {
             switch (valor) {
               case "people":
@@ -132,49 +126,84 @@ export default function Home() {
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.height}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Height
+                              </span>
+                              :{x.height}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.mass}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Mass
+                              </span>
+                              :{x.mass}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.hair_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Hair color
+                              </span>
+                              :{x.hair_color}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.skin_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Skin color
+                              </span>
+                              :{x.skin_color}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.eye_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Eye color
+                              </span>
+                              : {x.eye_color}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.birth_year}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Mass
+                              </span>
+                              :{x.birth_year}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.gender}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Gender
+                              </span>
+                              :{x.gender}
                             </Typography>
                           </CardContent>
                         </Card>
@@ -199,49 +228,96 @@ export default function Home() {
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.height}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Rotation period
+                              </span>
+                              :{x.rotation_period}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.mass}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Orbital period
+                              </span>
+                              :{x.orbital_period}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.hair_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Diameter
+                              </span>
+                              :{x.diameter}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.skin_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                climate
+                              </span>
+                              :{x.climate}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.eye_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Gravity
+                              </span>
+                              :{x.gravity}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.birth_year}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Terrain
+                              </span>
+                              :{x.terrain}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.gender}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Surface water
+                              </span>
+                              :{x.surface_water}
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: 14 }}
+                              color="text.secondary"
+                              gutterBottom
+                            >
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Population
+                              </span>
+                              :{x.population}
                             </Typography>
                           </CardContent>
                         </Card>
@@ -260,56 +336,50 @@ export default function Home() {
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.name}
+                              {x.title}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.height}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Director
+                              </span>
+                              :{x.director}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.mass}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Producer
+                              </span>
+                              :{x.producer}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.hair_color}
+                              <span
+                                style={{ color: "#0067cd", fontWeight: 400 }}
+                              >
+                                Release date
+                              </span>
+                              :{x.release_date}
                             </Typography>
                             <Typography
                               sx={{ fontSize: 14 }}
                               color="text.secondary"
                               gutterBottom
                             >
-                              {x.skin_color}
-                            </Typography>
-                            <Typography
-                              sx={{ fontSize: 14 }}
-                              color="text.secondary"
-                              gutterBottom
-                            >
-                              {x.eye_color}
-                            </Typography>
-                            <Typography
-                              sx={{ fontSize: 14 }}
-                              color="text.secondary"
-                              gutterBottom
-                            >
-                              {x.birth_year}
-                            </Typography>
-                            <Typography
-                              sx={{ fontSize: 14 }}
-                              color="text.secondary"
-                              gutterBottom
-                            >
-                              {x.gender}
+                              {x.opening_crawl}
                             </Typography>
                           </CardContent>
                         </Card>
@@ -319,7 +389,6 @@ export default function Home() {
             }
           })()}
         </Grid>
-
         {activo ? (
           <Stack spacing={2} alignItems="center">
             <Pagination
